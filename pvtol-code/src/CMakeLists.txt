@@ -1,0 +1,19 @@
+
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include/base/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include/mpi/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include/mcf/)
+INCLUDE_DIRECTORIES(/usr/local/cuda/include/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/../platforms/util/)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/../platforms/klaunch/)
+
+####### Include the subdirectories to build ######
+
+ADD_SUBDIRECTORY(base)
+ADD_SUBDIRECTORY(mpi)
+
+IF( CELL )
+   ADD_SUBDIRECTORY(mcf)
+ENDIF( CELL )
+
+
+

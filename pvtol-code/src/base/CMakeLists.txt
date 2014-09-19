@@ -1,0 +1,7 @@
+
+# Create the Pvtol Base library
+
+AUX_SOURCE_DIRECTORY(. LIB_SOURCE_FILES)  
+
+ADD_LIBRARY(PvtolBase_${LIB_NAME} STATIC ${LIB_SOURCE_FILES})
+

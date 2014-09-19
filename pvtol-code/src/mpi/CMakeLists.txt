@@ -1,0 +1,9 @@
+
+
+# Create the Pvtol MPI Library
+
+AUX_SOURCE_DIRECTORY(. LIB_SOURCE_FILES)  
+
+ADD_LIBRARY(PvtolMpi_${LIB_NAME} STATIC ${LIB_SOURCE_FILES})
+
+

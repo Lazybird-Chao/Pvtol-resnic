@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!-- Filename: hierarchicalMaps.xml -->
+<!-- TemporalMap for SPEs 0, 1, 2, and 3, for Cell 1 -->
+<!DOCTYPE PvtolMaps>
+<PvtolMaps>
+   <TemporalMap name = "DataTemporalMap">
+      <Grid>Grid_2x2</Grid>
+      <DistributionDescription>DistDesc_BB</DistributionDescription>
+      <DataManagementPolicy>DMP_T1TT</DataManagementPolicy>
+   </TemporalMap>
+
+   <DataManagementPolicy name = "DMP_T1TT">
+      <lazyAllocation>true</lazyAllocation>
+      <bufferSize>1</bufferSize>
+      <saveData>true</saveData>
+      <loadData>true</loadData>
+   </DataManagementPolicy>
+
+   <DistributionDescription name = "DistDesc_BB">
+      <Dim1>Block</Dim1>
+      <Dim2>Block</Dim2>
+   </DistributionDescription>
+
+   <Grid name = "Grid_2x2">
+      <Dim1>2</Dim1>
+      <Dim2>2</Dim2>
+   </Grid>
+
+   <Grid name = "Grid_1x4">
+      <Dim1>1</Dim1>
+      <Dim2>4</Dim2>
+   </Grid>
+
+   <Grid name = "Grid_1">
+      <Dim1>1</Dim1>
+   </Grid>
+
+   <Grid name = "Grid_1x2x4">
+      <Dim1>1</Dim1>
+      <Dim2>2</Dim2>
+      <Dim2>4</Dim2>
+   </Grid>
+
+   <Grid name = "Grid_1x2">
+      <Dim1>1</Dim1>
+      <Dim2>2</Dim2>
+   </Grid>
+
+   <RankList name = "Proc_0_1_2_3">
+      <Proc>0</Proc>
+      <Proc>1</Proc>
+      <Proc>2</Proc>
+      <Proc>3</Proc>
+   </RankList>
+
+   <RankList name = "Proc_0">
+      <Proc>0</Proc>
+   </RankList>
+
+   <RankList name = "Proc_1">
+      <Proc>1</Proc>
+   </RankList>
+
+   <RankList name = "Proc_2">
+      <Proc>2</Proc>
+   </RankList>
+
+   <RankList name = "Proc_3">
+      <Proc>3</Proc>
+   </RankList>
+
+   <RankList name = "Proc_4">
+      <Proc>4</Proc>
+   </RankList>
+
+   <RankList name = "Proc_5">
+      <Proc>5</Proc>
+   </RankList>
+
+   <RankList name = "Proc_6">
+      <Proc>6</Proc>
+   </RankList>
+
+   <RankList name = "Proc_7">
+      <Proc>7</Proc>
+   </RankList>
+
+   <RankList name = "Proc_8">
+      <Proc>8</Proc>
+   </RankList>
+
+   <RankList name = "Proc_9">
+      <Proc>9</Proc>
+   </RankList>
+
+   <RankList name = "Proc_10">
+      <Proc>10</Proc>
+   </RankList>
+
+   <RankList name = "Proc_11">
+      <Proc>11</Proc>
+   </RankList>
+
+   <RankList name = "Proc_12">
+      <Proc>12</Proc>
+   </RankList>
+
+   <RankList name = "Proc_0_1">
+      <Proc>0</Proc>
+      <Proc>1</Proc>
+   </RankList>
+
+   <!-- SpeMap for Cell 0 --> 
+   <RunTimeMap name = "speMap0">
+      <Grid>Grid_1x4</Grid>
+      <RankList>Proc_0123</RankList>
+      <DistributionDescription>DistDesc_BB</DistributionDescription>
+   </RunTimeMap>
+
+   <!-- SpeMap for for Cell 1 --> 
+   <RunTimeMap name = "speMap1">
+      <Grid>Grid_2x2</Grid>
+      <RankList>Proc_0_1_2_3</RankList>
+      <DistributionDescription>DistDesc_BB</DistributionDescription>
+      <TemporalMap>DataTemporalMap</TemporalMap>
+   </RunTimeMap>
+
+   <!-- Cell Temporal Map (Disk) -->
+   <TemporalMap name = "diskTemporalMap">
+      <Type>RuntimeMap</Type>
+      <Grid>Grid_2x2</Grid>
+      <DistributionDescription>DistDesc_BB</DistributionDescription>
+      <DataManagementPolicy>DMP_T1TT</DataManagementPolicy>
+   </TemporalMap>
+
+   <!-- Hierarchical Cell Map -->
+   <RunTimeMap name = "cellMap">
+      <Grid>Grid_1x2</Grid>
+      <RankList>Proc_0_1</RankList>
+      <DistributionDescription>DistDesc_BB</DistributionDescription>
+      <TemporalMap>diskTemporalMap</TemporalMap>
+      <RunTimeMap>speMap0</RunTimeMap>
+      <RunTimeMap>speMap1</RunTimeMap>
+   </RunTimeMap>
+
+   <TaskMap name = "Cell1">
+      <RankList>Proc_1</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell2">
+      <RankList>Proc_2</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell4">
+      <RankList>Proc_4</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell5">
+      <RankList>Proc_5</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell7">
+      <RankList>Proc_7</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell8">
+      <RankList>Proc_8</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell10">
+      <RankList>Proc_10</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+
+   <TaskMap name = "Cell11">
+      <RankList>Proc_11</RankList>
+      <Grid>Grid_1</Grid>
+   </TaskMap>
+</PvtolMaps>
+

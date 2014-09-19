@@ -1,0 +1,11 @@
+
+# Create Pvtol Mcf Library 
+
+
+AUX_SOURCE_DIRECTORY(. LIB_SOURCE_FILES)  
+
+ADD_LIBRARY(PvtolMcf_${LIB_NAME} STATIC ${LIB_SOURCE_FILES})
+
+
+
+

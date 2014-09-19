@@ -1,0 +1,35 @@
+#  FindFftw.cmake
+#
+#  \author  $LastChangedBy$
+#  \date    $LastChangedDate$
+#  \version $LastChangedRevision$
+#  \brief   Find the fftw includes/lib requires paths to be run first
+#
+#  $Id$
+#
+#  Copyright (c) 2008, Massachusetts Institute of Technology
+#
+#  All rights reserved.
+#############################################################################
+
+
+####################### Find FFTW           ###########################
+FIND_PATH(FFTW_INCLUDE fftw3.h 
+          PATHS ${FFTW_PATHS}
+          PATH_SUFFIXES include
+          NO_DEFAULT_PATH)
+
+IF(NOT FFTW_INCLUDE)
+   MESSAGE(FATAL_ERROR "Could not find FFTW include dir!")    
+ENDIF(NOT FFTW_INCLUDE)
+
+INCLUDE_DIRECTORIES(${FFTW_INCLUDE})
+
+FIND_LIBRARY(FFTW_LIB fftw3
+             PATHS ${FFTW_LIB_PATHS}
+             NO_DEFAULT_PATH)
+IF(NOT FFTW_LIB)
+   MESSAGE(FATAL_ERROR "Could not find FFTW lib!")
+ENDIF(NOT FFTW_LIB)
+
+LINK_LIBRARIES(${FFTW_LIB})
