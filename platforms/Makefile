@@ -9,7 +9,7 @@
 LIBDIR := ../lib
 
 #PVTOLBASE := where the pvtol source code is 
-PVTOLBASE := /home/chao/Desktop/PVTOL/pvtol-code
+PVTOLBASE := /home/chao/Desktop/Pvtol-resnic/pvtol-code
 
 CUDA_INSTALL_PATH := /usr/local/cuda-5.5
 
