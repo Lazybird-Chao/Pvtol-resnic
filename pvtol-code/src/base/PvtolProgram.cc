@@ -144,6 +144,7 @@ void PvtolProgram::printStatus()
 void PvtolProgram::initialize (int& argc, char * argv[])
 {
 	//Only the root task can change the state
+	//TaskId t=TaskManager::getCurrentTaskId();
 	if (m_nCount && TaskManager::getCurrentTaskId() != m_rootTaskId)
 		return;
 	

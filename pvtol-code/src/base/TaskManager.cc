@@ -186,7 +186,8 @@ namespace ipvtol{
 		TaskId taskId = 0;
 
 		void* pInfo = pthread_getspecific(m_taskInfoKey);
-		
+		//std::cout<<"in taskmanager::getcurrenttaskid:  "<<pInfo<<endl;
+
 		if (pInfo) {
 			TaskInfo info = * reinterpret_cast<TaskInfo*>(pInfo);
 			taskId = info.taskId;
