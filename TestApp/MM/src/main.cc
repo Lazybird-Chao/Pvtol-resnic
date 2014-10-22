@@ -27,7 +27,7 @@ int main(int argc, char*argv[])
 	float runtime=0.0;
 
 	PvtolProgram prog(argc, argv);
-
+	//cout<<prog.numProcs()<<"  "<<prog.rank()<<endl;
 	int matrix_size;
 	int thread_size;
 	if(argc!=3)
@@ -38,6 +38,8 @@ int main(int argc, char*argv[])
 	matrix_size=atoi(argv[1]);
 	thread_size=atoi(argv[2]);
 	cout<<matrix_size<<"    "<<thread_size<<endl;
+	//PvtolProgram prog2(argc, argv);
+	//cout<<prog2.numProcs()<<"  "<<prog2.rank()<<endl;
 
 	vector <RankId> rank;
 	int i;
